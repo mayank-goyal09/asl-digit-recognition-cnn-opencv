@@ -1,0 +1,8 @@
+# Streamlit Cloud Configuration
+
+[theme]
+primaryColor = "#6366f1"
+backgroundColor = "#0f0c29"
+secondaryBackgroundColor = "#302b63"
+textColor = "#e0e7ff"
+font = "sans serif"
