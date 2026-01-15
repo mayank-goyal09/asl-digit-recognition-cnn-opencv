@@ -2,183 +2,108 @@
 
 <div align="center">
 
+![ASL CNN Banner](assets/banner.png)
+
+<br>
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://asl-digit-recognition-cnn-opencv-project.streamlit.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?style=for-the-badge&logo=github)](https://github.com/mayank-goyal09)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mayank-goyal-mg09/)
 ![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.12+-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
-![Accuracy](https://img.shields.io/badge/Accuracy-93%25+-10B981?style=for-the-badge)
 
-**Deep Learning Powered American Sign Language Digit Recognition**
+**A high-performance deep learning application that translates American Sign Language digits into text in real-time.**
 
-[Live Demo](#deployment) • [Features](#features) • [Installation](#installation) • [Usage](#usage)
+[🔴 Live Demo](https://asl-digit-recognition-cnn-opencv-project.streamlit.app/) • [✨ Features](#-features) • [🧠 How it Works](#--how-it-works) • [🚀 Installation](#--installation)
 
 </div>
 
 ---
 
-## 🎯 Overview
+## 📸 Live Preview
 
-A beautiful, interactive web application that uses a Convolutional Neural Network (CNN) to recognize American Sign Language (ASL) digits (0-9) from images. Built with TensorFlow and Streamlit, featuring a premium glassmorphism UI design.
+<div align="center">
+  <a href="https://asl-digit-recognition-cnn-opencv-project.streamlit.app/">
+    <img src="assets/app_preview.png" alt="ASL App Preview" width="100%" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  </a>
+  <p><em>Click the image to try the live app!</em></p>
+</div>
+
+## 💡 Overview
+
+The **ASL Digits Recognizer** uses a custom-trained **Convolutional Neural Network (CNN)** to classify hand gestures representing digits 0-9. Built with **TensorFlow** and deployed via **Streamlit**, it features a premium glassmorphism UI and instantaneous inference capabilities.
+
+Whether you upload an image, draw on the digital canvas, or select a sample, the AI analyzes the visual patterns to deliver high-confidence predictions.
 
 ## ✨ Features
 
-- 🧠 **CNN Neural Network** - Deep learning model with 93%+ accuracy
-- 📤 **Image Upload** - Upload any ASL digit image
-- ✏️ **Canvas Drawing** - Draw ASL gestures directly in browser
-- 🎲 **Sample Images** - Test with built-in sample images
-- 📊 **Confidence Scores** - See prediction probabilities for all classes
-- 🎨 **Premium UI** - Beautiful glassmorphism design with animations
-- ⚡ **Real-time Prediction** - Instant results
+- **🧠 Advanced CNN Engine**: Powered by a multi-layer Convolutional Neural Network trained on the Sign Language Digits Dataset.
+- **🎨 Interactive Canvas**: Draw digits directly in the browser with real-time feedback.
+- **📤 Multi-Input Support**: Upload images, draw freely, or use pre-loaded validation samples.
+- **📊 Live Confidence Metrics**: Visualizes the model's certainty across all 10 classes dynamically.
+- **💎 Premium Aesthetics**: Modern, dark-themed UI with glassmorphism effects and smooth animations.
 
-## 🏗️ Model Architecture
+## 🧠 How it Works
 
-| Layer | Output Shape | Parameters |
-|-------|-------------|------------|
-| Conv2D (32 filters) | (64, 64, 32) | 320 |
-| MaxPooling2D | (32, 32, 32) | 0 |
-| Conv2D (64 filters) | (32, 32, 64) | 18,496 |
-| MaxPooling2D | (16, 16, 64) | 0 |
-| Conv2D (128 filters) | (16, 16, 128) | 73,856 |
-| MaxPooling2D | (8, 8, 128) | 0 |
-| Flatten | (8192) | 0 |
-| Dense (128) | (128) | 1,048,704 |
-| Dropout (0.3) | (128) | 0 |
-| Dense (10) | (10) | 1,290 |
+The core of this application is a **Convolutional Neural Network**, designed to mimic the human visual cortex. It processes input images through layers of filters to extract features like edges, curves, and textures.
 
-**Total Parameters:** 1,142,666
+<div align="center">
+  <img src="https://raw.githubusercontent.com/jerpint/cnn-cheatsheet/master/assets/valid.gif" alt="CNN Animation" width="600">
+  <p><em>Visualization of a Convolution Operation (Credit: <a href="https://github.com/jerpint/cnn-cheatsheet">cnn-cheatsheet</a>)</em></p>
+</div>
+
+1.  **Input Processing**: Images are resized to 64x64 pixels and converted to grayscale.
+2.  **Feature Extraction**: Three convolutional layers (32, 64, 128 filters) scan the image for key patterns.
+3.  **Classification**: Dense layers interpret these features to determine the most likely digit.
+
+### Model Architecture
+| Layer Type | Specifications |
+| :--- | :--- |
+| **Input** | (64, 64, 1) Grayscale Image |
+| **Conv2D** | 32 filters, 3x3 kernel, ReLU |
+| **MaxPooling** | 2x2 pool size |
+| **Conv2D** | 64 filters, 3x3 kernel, ReLU |
+| **Conv2D** | 128 filters, 3x3 kernel, ReLU |
+| **Dense** | 128 neurons, Dropout (0.3) |
+| **Output** | 10 neurons (Softmax) |
 
 ## 🚀 Installation
 
-### Prerequisites
-- Python 3.9 or higher
-- pip package manager
+Run the app locally in minutes:
 
-### Local Setup
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/mayank-goyal09/asl-digits-recognizer.git
+    cd asl-digits-recognizer
+    ```
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/asl-digits-recognizer.git
-   cd asl-digits-recognizer
-   ```
+2.  **Install dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+3.  **Launch the App**
+    ```bash
+    streamlit run app.py
+    ```
 
-3. **Run the application**
-   ```bash
-   streamlit run app.py
-   ```
+## 🤝 Connect with Me
 
-4. **Open in browser**
-   ```
-   http://localhost:8501
-   ```
+<div align="center">
 
-## 📱 Usage
+| **Mayank Goyal** |
+| :---: |
+| [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mayank-goyal-mg09/) |
+| [![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github)](https://github.com/mayank-goyal09) |
+| [� More Projects](https://github.com/mayank-goyal09?tab=repositories) |
 
-1. **Choose Input Method**: Select from upload, draw, or sample images
-2. **Provide Image**: Upload an ASL digit image or draw on canvas
-3. **Click Predict**: Hit the prediction button
-4. **View Results**: See the detected digit and confidence scores
-
-## 🌐 Deployment
-
-### Deploy on Streamlit Cloud
-
-1. Push your code to GitHub
-2. Visit [share.streamlit.io](https://share.streamlit.io)
-3. Connect your GitHub repository
-4. Select the main file (`app.py`)
-5. Click Deploy!
-
-### Deploy on Other Platforms
-
-<details>
-<summary>Heroku</summary>
-
-1. Create a `Procfile`:
-   ```
-   web: streamlit run app.py --server.port=$PORT --server.address=0.0.0.0
-   ```
-
-2. Create `setup.sh`:
-   ```bash
-   mkdir -p ~/.streamlit/
-   echo "[server]
-   headless = true
-   port = $PORT
-   enableCORS = false
-   " > ~/.streamlit/config.toml
-   ```
-
-3. Deploy using Heroku CLI
-</details>
-
-<details>
-<summary>Railway</summary>
-
-1. Create a new project on Railway
-2. Connect your GitHub repository
-3. Railway will auto-detect Streamlit
-4. Deploy!
-</details>
-
-## 📂 Project Structure
-
-```
-asl-digits-recognizer/
-├── app.py                    # Main Streamlit application
-├── requirements.txt          # Python dependencies
-├── README.md                 # Project documentation
-├── X.npy                     # Image dataset
-├── Y.npy                     # Labels dataset
-├── main.ipynb               # Training notebook
-└── models/
-    ├── asl_digits_cnn.keras # Base CNN model
-    └── asl_digits_aug.keras # Augmented model
-```
-
-## 📊 Dataset
-
-- **Images**: 2,062 grayscale images (64×64 pixels)
-- **Classes**: 10 (digits 0-9)
-- **Split**: 70% train / 15% validation / 15% test
-- **Source**: Sign Language Digits Dataset
-
-## 🎨 UI Preview
-
-The application features:
-- Gradient backgrounds with purple/indigo theme
-- Glassmorphism card effects
-- Animated prediction display
-- Interactive confidence bars
-- Responsive design
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🙏 Acknowledgments
-
-- TensorFlow/Keras for the deep learning framework
-- Streamlit for the web application framework
-- Sign Language Digits Dataset creators
+</div>
 
 ---
 
 <div align="center">
-  <p>Built with ❤️ using TensorFlow & Streamlit</p>
-  
-  ⭐ Star this repository if you found it helpful!
+  <p>Built with ❤️ and ☕ by Mayank Goyal</p>
+  <p>
+    <a href="#">Back to Top ⬆️</a>
+  </p>
 </div>
