@@ -1,11 +1,10 @@
-# ASL Digits Recognizer - Requirements
-# CNN Deep Learning Application for American Sign Language Digit Recognition
+
 
 # Core ML/DL
 tensorflow>=2.12.0
 numpy>=1.24.0
 
-# Web Application
+# only web
 streamlit>=1.28.0
 streamlit-drawable-canvas>=0.9.3
 
@@ -14,3 +13,4 @@ Pillow>=10.0.0
 
 # Utilities
 protobuf>=3.20.0
+
