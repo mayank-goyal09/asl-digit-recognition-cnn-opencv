@@ -1,6 +1,6 @@
 
 
-# machine learning and deep learning
+# machine learning/deep learning
 tensorflow>=2.12.0
 numpy>=1.24.0
 
@@ -13,5 +13,6 @@ Pillow>=10.0.0
 
 # Utilities
 protobuf>=3.20.0
+
 
 
